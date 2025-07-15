@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, <span th:text="${loggedUser.name}"></span></h2>
+    <p>Your Leave Applications:</p>
+
+    <table border="1">
+        <tr>
+            <th>Type</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Reason</th>
+            <th>Status</th>
+        </tr>
+        <tr th:each="leave : ${leaves}">
+            <td th:text="${leave.type}"></td>
+            <td th:text="${leave.fromDate}"></td>
+            <td th:text="${leave.toDate}"></td>
+            <td th:text="${leave.reason}"></td>
+            <td th:text="${leave.status}"></td>
+        </tr>
+    </table>
+
+    <p><a th:href="@{/apply}">Apply for Leave</a></p>
+    <p><a th:href="@{/login}">Logout</a></p>
+</body>
+</html>

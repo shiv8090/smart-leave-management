@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Apply for Leave</title>
+</head>
+<body>
+    <h2>Apply for Leave</h2>
+
+    <form th:action="@{/apply}" method="post" th:object="${leave}">
+        From Date: <input type="date" th:field="*{fromDate}" required/><br/>
+        To Date: <input type="date" th:field="*{toDate}" required/><br/>
+        Type: 
+        <select th:field="*{type}">
+            <option value="Sick">Sick</option>
+            <option value="Casual">Casual</option>
+        </select><br/>
+        Reason: <input type="text" th:field="*{reason}" required/><br/>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p><a th:href="@{/dashboard}">Back to Dashboard</a></p>
+</body>
+</html>

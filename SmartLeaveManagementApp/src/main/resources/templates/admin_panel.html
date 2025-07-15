@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h2>Admin Dashboard</h2>
+    <p>All Leave Requests:</p>
+
+    <table border="1">
+        <tr>
+            <th>Employee</th>
+            <th>Type</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="leave : ${leaves}">
+            <td th:text="${leave.employee.name}"></td>
+            <td th:text="${leave.type}"></td>
+            <td th:text="${leave.fromDate}"></td>
+            <td th:text="${leave.toDate}"></td>
+            <td th:text="${leave.reason}"></td>
+            <td th:text="${leave.status}"></td>
+            <td>
+                <a th:href="@{'/update-status?id=' + ${leave.leaveId} + '&status=APPROVED'}">Approve</a> |
+                <a th:href="@{'/update-status?id=' + ${leave.leaveId} + '&status=REJECTED'}">Reject</a>
+            </td>
+        </tr>
+    </table>
+
+    <p><a th:href="@{/login}">Logout</a></p>
+</body>
+</html>
