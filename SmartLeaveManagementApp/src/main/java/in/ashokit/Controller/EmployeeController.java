@@ -86,7 +86,7 @@ public class EmployeeController {
 	    @GetMapping("/apply")
 	    public String applyForm(Model model) {
 	        model.addAttribute("leave", new LeaveRequest());
-	        return "apply_leave";  // this must match the name of the HTML file (without `.html`)
+	        return "apply_leave";  
 	    }
 	    @PostMapping("/apply")
 	    public String applyLeave(@ModelAttribute LeaveRequest leave,
@@ -100,3 +100,4 @@ public class EmployeeController {
 	    
 	
 }
+
